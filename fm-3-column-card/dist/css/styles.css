@@ -1,0 +1,146 @@
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  padding: 88px 24px;
+}
+
+@media (min-width: 64em) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 64em) {
+  .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-transform: translateY(84px);
+            transform: translateY(84px);
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  min-width: 270px;
+  margin: 0 auto;
+  padding: 48px 48px;
+}
+
+@media (min-width: 64em) {
+  .card {
+    max-width: 306px;
+    max-height: 500px;
+  }
+}
+
+.card-icon {
+  margin-bottom: 30px;
+}
+
+.card-title {
+  font-family: 'Big Shoulders Display', cursive;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: #f2f2f2;
+  margin-bottom: 27px;
+}
+
+.card-info {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 26px;
+}
+
+@media (min-width: 64em) {
+  .card-info {
+    margin-bottom: 77px;
+  }
+}
+
+.card-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 15px;
+  background-color: #f2f2f2;
+  border: 2px solid #f2f2f2;
+  border-radius: 25px;
+  padding: 12px 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-btn:hover {
+  background-color: transparent;
+  color: #f2f2f2 !important;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.sedan {
+  background-color: #e38826;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+@media (min-width: 64em) {
+  .sedan {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+  }
+}
+
+.sedan .card-btn {
+  color: #e38826;
+}
+
+.suv {
+  background-color: #006970;
+}
+
+.suv .card-btn {
+  color: #006970;
+}
+
+.luxury {
+  background-color: #004241;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+@media (min-width: 64em) {
+  .luxury {
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 10px;
+  }
+}
+
+.luxury .card-btn {
+  color: #004241;
+}
+/*# sourceMappingURL=styles.css.map */

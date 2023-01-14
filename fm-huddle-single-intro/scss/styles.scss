@@ -1,0 +1,246 @@
+@import './variables';
+@import './mixins';
+
+*,
+::before,
+::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: $violet;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar{
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: $veryLightGray;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: $softMagenta;
+        border-radius: 10px;
+    }
+}
+
+a, a:visited, a:hover{
+    text-decoration: none;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/bg-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top center;
+
+    @include breakpoint-up(large){
+        background-image: url('../../images/bg-desktop.svg');
+        background-size: contain;
+        background-position: left top;
+    }
+
+    // @include breakpoint-up(xxlarge){
+    //     max-width: 1440px;
+    //     margin: 0 auto;
+    // }
+}
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    padding: 2.3125rem 2.3125rem 2.5rem;
+
+    @include breakpoint-up(medium){
+        padding: 3.75rem;
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    @include breakpoint-up(large){
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        max-width: 1280px;
+    }
+
+    @include breakpoint-up(xxlarge){
+        padding: 3.75rem 0 2.5rem;
+        min-height: 696px;
+    }
+}
+
+.logo{
+    width: clamp(8.125em, 15vw, 13.5rem);
+    transform: translate(-4px, -6px);
+
+    @include breakpoint-up(xxlarge){
+        transform: translate(-11px, -7px);
+    }
+
+    img{
+        width: 100%;
+    }
+}
+
+.content{
+    margin: 3.125rem 0;
+
+    @include breakpoint-up(large){
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        margin: 35px 0 0;
+    }
+
+    @include breakpoint-up(xxlarge){
+        margin: 76px 5px 0 0;
+    }
+
+    &__image{
+
+        @include breakpoint-up(large){
+            width: 100%;
+            flex: 0 0 460px;
+            transform: translateX(-6px);
+        }
+
+        @include breakpoint-up(xlarge){
+            flex: 0 0 620px;
+        }
+
+        @include breakpoint-up(xxlarge){
+            flex: 0 0 707px;
+        }
+        
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__info{
+        text-align: center;
+        margin-top: 41px;//41px
+
+        @include breakpoint-up(large){ 
+            text-align: left;
+            margin-left: 47px;
+        }
+
+        h1{
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 600;
+            color: $veryLightGray;
+            letter-spacing: -0.1px;
+        }
+
+        p{
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: $lightGray;
+            line-height: 1.5;
+            margin-top: 14px;
+
+            @include breakpoint-up(xlarge){
+                font-size: 18px;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    &__cta{
+        display: inline-block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: $violet;
+        background-color: white;
+        border-radius: 50px;
+        box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.25);
+        padding: 0.6875rem 4.8125rem;
+        margin-top: 1.375rem;//22px
+        transition: all 300ms ease-in-out;
+
+        @include breakpoint-up(xlarge){
+            font-size: 18px;
+            margin-top: 24px;
+            padding: 14.5px 64px;
+        }
+
+        &:hover{
+            color: white;
+            background-color: $softMagenta;
+            transition: all 300ms ease-in-out;
+        }
+    }
+
+}
+
+.socmed{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;//64px
+
+    @include breakpoint-up(large){
+        justify-content: flex-end;
+        margin-top: 1.125rem;//18px
+    }
+
+    &__link{
+        display: inline-block;
+        width: 27px;
+        height: 28px;
+        color: white;
+        border-width: 1px;
+        border-style: solid;
+        border-color: white;
+        border-radius: 50%;
+        padding: 6px;
+        transition: all 300ms ease-in-out;
+
+        @include breakpoint-up(xlarge){
+            width: 40px;
+            height: 40px;
+
+            &.fb-link, &.twt-link{
+                padding: 11px;
+            }
+
+            &.ig-link{
+                padding: 9px;
+            }
+        }
+
+        svg{
+            width: 100%;
+            height: 100%;
+        }
+
+        &:not(:last-child){
+            margin-right: 0.6875rem;//11px
+
+            @include breakpoint-up(xlarge){
+                margin-right: 16px;
+            }
+        }
+
+        &:hover{
+            color: $softMagenta;
+            border-color: $softMagenta;
+            transition: all 300ms ease-in-out;
+        }
+    }
+}
+

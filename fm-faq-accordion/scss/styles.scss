@@ -1,0 +1,217 @@
+@import './variables';
+@import './mixins';
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.container{
+    width: 100%;
+    min-height: 768px;
+    // min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, $softViolet, $SoftBlue);
+    padding: 0 1.5rem;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 450px;
+    min-width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 22px;
+    transform: translateY(28px);
+    box-shadow: 0px 45px 40px -15px rgba(0,0,0,0.25);
+
+
+    @include breakpoint-up(large){
+        max-width: 920px;
+        flex-direction: row;
+        transform: translate(20px, 0px);
+        padding-right: 89px;
+    }
+}
+
+.illustration{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: -109px;
+
+    @include breakpoint-up(large){
+        flex: 4;
+        min-height: 509px;
+        position: relative;
+        place-items: end left;
+        margin-top: 0;
+    }
+
+    &__woman{
+        width: 268px;
+        height: 200px;
+        background-image: url('../../images/illustration-woman-online-mobile.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: -14px 0px;
+
+        @include breakpoint-up(large){
+            position: absolute;
+            top: 68px;
+            width: 390px;
+            height: 360px;
+            background-image: url('../../images/illustration-woman-online-desktop.svg');
+            background-size: 120%;
+            background-position: -81px 3px;
+            z-index: 1;
+
+            &::after{
+                content: url('../../images/illustration-box-desktop.svg');
+                position: absolute;
+                top: 135px;
+                left: -93px;
+                background-image: radial-gradient(100px 95px, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.2) 20%, transparent 60%);
+                background-position: 0px -17px;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    &__box{
+        width: 238px;
+        height: 110px;
+        background-image: url('../../images/bg-pattern-mobile.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        transform: translate(0, -90px);
+
+        @include breakpoint-up(large){
+            width: 390px;
+            height: 100%;
+            transform: translate(0, 0);
+            background-image: url('../../images/bg-pattern-desktop.svg');
+            background-size: 250%;
+            background-position: -585px -300px;
+        }
+    }
+}
+
+.accordion{
+    width: 100%;
+    padding: 0 23px 25px 25px;
+    margin-top: -63px;
+
+    @include breakpoint-up(large){
+        flex: 3;
+        margin-top: 0;
+        padding: 70px 20px 66px 31px;
+    }
+
+    &__title{
+        font-size: 32px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 35px;
+
+        @include breakpoint-up(large){
+            text-align: left;
+            margin-bottom: 42px;
+        }
+    }
+
+    &__item{
+        position: relative;
+    }
+
+    input{
+        position: absolute;
+        display: none;
+
+        &:checked + .accordion__question{
+            color: $softRed;
+            font-weight: 700;
+
+            @include breakpoint-up(large){
+                color: $veryDarkDesaturatedBlue;
+            }
+        }
+
+        &:checked + .accordion__question::after{
+            transform: rotate(-180deg);
+            transition: all .4s ease;
+        }
+
+        &:checked + .accordion__answer{
+            display: none;
+        }
+
+        &:checked + .accordion__question + .accordion__answer{
+            max-height: 4rem;
+            padding-top: 15px;
+            opacity: 1;
+            transition: all .4s ease;
+            
+            @include breakpoint-up(large){
+                padding-top: 12px;
+            }
+        }
+    }
+
+    &__question{
+        width: 100%;
+        display: inline-block;
+        color: $veryDarkGrayishBlue;
+        cursor: pointer;
+        transition: all .4s ease;
+        
+
+        @include breakpoint-up(large){
+            font-size: 14px;
+        }
+
+        &::after{
+            content: url('../../images/icon-arrow-down.svg');
+            float: right;
+            transition: all .4s ease;
+        }
+
+        &:hover{
+            color: $softRed;
+            transition: all .4s ease;
+        }
+    }
+
+    &__answer{
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin-right: 10px;
+        transition: all .4s ease;
+
+        p{
+            font-size: 12px;
+            color: $darkGrayishBlue;
+            letter-spacing: 0px;
+            line-height: 1.4;
+        }
+    }
+
+    .divider{
+        height: 1px;
+        background-color: $lightGrayishBlue;
+        border: 0;
+        margin: 18px 0;
+    }
+}

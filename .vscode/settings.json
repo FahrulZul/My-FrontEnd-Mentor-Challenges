@@ -1,0 +1,11 @@
+{
+    "liveSassCompile.settings.excludeList": [
+        "/**/node_modules/**",
+        "/.vscode/**",
+        "/fm-social-proof-section-main/scss/styles.scss",
+        "/fm-profile-card-component-master/scss/styles.scss",
+        "/fm-huddle-single-intro-main/scss/styles.scss",
+        "/fm-faq-accordion-main/scss/styles.scss",
+        "/fm-3-column-card-main/scss/styles.scss"
+    ]
+}

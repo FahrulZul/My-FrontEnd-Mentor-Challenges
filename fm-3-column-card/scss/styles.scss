@@ -1,0 +1,126 @@
+@import './variables';
+@import './mixin';
+
+*,
+::before,
+::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: $veryLightGray;
+    padding: 88px 24px;
+
+    @include breakpoint-up(large){
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.wrapper{
+
+    @include breakpoint-up(large){
+        display: flex;
+        flex-direction: row;
+        transform: translateY(84px);
+    }
+}
+
+.card{
+    width: 100%;
+    max-width: 400px;
+    min-width: 270px;
+    margin: 0 auto;
+    padding: 48px 48px;
+
+    @include breakpoint-up(large){
+        max-width: 306px;
+        max-height: 500px;
+    }
+
+    &-icon{
+        margin-bottom: 30px;
+    }
+
+    &-title{
+        font-family: 'Big Shoulders Display', cursive;
+        font-size: 40px;
+        text-transform: uppercase;
+        color: $veryLightGray;
+        margin-bottom: 27px;
+    }
+
+    &-info{
+        font-size: 15px;
+        line-height: 1.7;
+        color: $transparentWhite;
+        margin-bottom: 26px;
+
+        @include breakpoint-up(large){
+            margin-bottom: 77px;
+        }
+    }
+
+    &-btn{
+        display: inline-block;
+        text-decoration: none;
+        font-size: 15px;
+        background-color: $veryLightGray;
+        border: 2px solid $veryLightGray;
+        border-radius: 25px;
+        padding: 12px 30px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            background-color: transparent;
+            color: $veryLightGray !important;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+.sedan{
+    background-color: $brightOrange;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+
+    @include breakpoint-up(large){
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .card-btn{
+        color: $brightOrange;
+    }
+}
+
+.suv{
+    background-color: $darkCyan;
+
+    .card-btn{
+        color: $darkCyan;
+    }
+}
+
+.luxury{
+    background-color: $veryDarkCyan;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    @include breakpoint-up(large){
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px;
+    }
+
+    .card-btn{
+        color: $veryDarkCyan;
+    }
+}
