@@ -1,4 +1,4 @@
-### Frontend Mentor Challenges
+## Frontend Mentor Challenges
 
 This repository contains a collection of my frontend challenges from [Frontend Mentor](https://www.frontendmentor.io/home). Each challenge includes a detailed brief, design assets, and a starter code. The goal of these challenges is to improve your frontend skills and practice working with HTML, CSS, and JavaScript.
 
